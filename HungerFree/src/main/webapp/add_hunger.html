@@ -1,0 +1,74 @@
+<script>
+function validate(){
+	document.getElementById("flag").value=true;
+	var res1=0,res2=0;
+	var email=document.getElementById("email").value;
+	document.getElementById("msg").innerHTML="";
+	document.getElementById("msg1").innerHTML="";
+	 var lastAtPos = email.lastIndexOf('@');
+	  var lastDotPos = email.lastIndexOf('.');
+	  if(lastAtPos < lastDotPos && lastAtPos > 0 && email.indexOf('@@') == -1 && lastDotPos > 2 && (email.length - lastDotPos) > 2 && (lastDotPos-lastAtPos)>=4){
+		  res1=1;
+		}
+	  else{
+		  document.getElementById("msg").innerHTML="Invalid Email id"
+		  res1=0;
+	  }
+	  
+	  var type=document.getElementById("type").value;
+	  if(type==-1){
+		  res2=0;
+		  document.getElementById("msg1").innerHTML="Select option";
+		}
+	  else
+		  res2=1;
+	  if(res1==1 && res2==1)
+		  return true;
+	  else
+		  return false;
+}
+</script>
+<body>
+<div align="center">
+<table align="center" style="height: 230">
+	<form action="controller" method="POST" onsubmit="return validate()">
+		<tr>
+			<td style="color:yellow">Type : </td>
+			<td><select name="type" required id="type">
+						<option value="-1" selected>Select a type</option>
+						<option value="orphange">Orphanage</option>
+						<option value="slum">Slum</option>
+						<option value="hospitals">Hospitals</option>
+						<option value="roadside">Road Side</option>
+						<option value="oldagehome">Old Age Home</option>			
+					</select><span id="msg1" style="color:yellow"></span>
+			</td>
+		</tr>
+		<tr>
+			<td style="color:yellow">Location : </td>
+			<td><textarea name="loc" required></textarea></td>
+		</tr>
+		<tr>
+			<td style="color:yellow">No of People : </td>
+			<td><input type="number" name="count" required></td>
+		</tr>
+		<tr>
+			<td style="color:yellow">Mobile No : </td>
+			<td><input type="text" name="mobile" required pattern="[6-9]{1}[0-9]{9}" maxlength="10" placeholder="10-digit number"></td>
+		</tr>
+		<tr>
+			<td style="color:yellow">Email : </td>
+			<td><input type="email" name="email" required id="email"><span id="msg" style="color:yellow"></span></td>
+		</tr>
+			<tr>
+			<td colspan="2" align="right"><input type="hidden" id="flag" name="flag" value="false"/>
+			<br>
+				<input type="submit" name="rType" value="addHunger" style="color:red">&nbsp;&nbsp;&nbsp;&nbsp;
+				<input type="reset" value="Reset" style="color:red">
+			</td>
+		</tr>
+		</font>
+	</form>
+</table>
+</div>
+</body>

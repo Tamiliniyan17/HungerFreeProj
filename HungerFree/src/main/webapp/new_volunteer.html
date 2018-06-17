@@ -1,0 +1,81 @@
+<script>
+function validate1(){
+	document.getElementById("flag").value=true;
+	var res1=0,res2=0;
+	var email=document.getElementById("email").value;
+	document.getElementById("msg").innerHTML="";
+	document.getElementById("msg1").innerHTML="";
+	 var lastAtPos = email.lastIndexOf('@');
+	  var lastDotPos = email.lastIndexOf('.');
+	  if(lastAtPos < lastDotPos && lastAtPos > 0 && email.indexOf('@@') == -1 && lastDotPos > 2 && (email.length - lastDotPos) > 2 && (lastDotPos-lastAtPos)>=4){
+		  res1=1;
+		}
+	  else{
+		  document.getElementById("msg").innerHTML="Invalid Email id"
+		  res1=0;
+	  }
+	  
+	  var pwd=document.getElementById("pwd").value;
+	  var repwd=document.getElementById("repwd").value;
+	  if(!(pwd==repwd)){
+		  res2=0;
+		  document.getElementById("msg1").innerHTML="Password not Matched";
+		}
+	  else
+		  res2=1;
+	  if(res1==1 && res2==1)
+		  return true;
+	  else
+		  return false;
+}
+</script>
+<body>
+	<div align="center">
+		<table align="center" style="height: 300">
+			<form action="controller" method="POST" onsubmit="return validate1()">
+				<tr>
+					<td style="color: yellow">Name :</td>
+					<td><input type="text" name="name" required />
+				</tr>
+				<tr>
+					<td style="color: yellow">Location :</td>
+					<td><textarea name="loc" required></textarea></td>
+				</tr>
+				
+				<tr>
+					<td style="color: yellow">Mobile No :</td>
+					<td><input type="text" name="mobile" required
+						pattern="[6-9]{1}[0-9]{9}" maxlength="10"
+						placeholder="10-digit number"></td>
+				</tr>
+					<tr>
+				<td style="color: yellow">Email :</td>
+					<td><input type="email" name="email" required id="email"><span
+						id="msg" style="color: yellow"> </span> <br> <font
+						face="calibri" color="yellow">Ur email will be the UserName
+					</font></td>
+				</tr>
+				
+				<tr>
+					<td style="color: yellow">Password :</td>
+					<td><input type="password" name="pwd" id="pwd" required
+						pattern="(?=.*[A-Z]).{8,}" placeholder="with atleast 1 uppercase" /></td>
+				</tr>
+		
+			<tr>
+				<td style="color: yellow">Retype Password :</td>
+				<td><input type="password" name="repwd" id="repwd" required /><span
+					id="msg1" style="color: yellow"></span></td>
+			</tr>
+			<tr>
+				<td colspan="2" align="right"><input type="hidden" id="flag" name="flag" value="false" />
+			<br>
+			<input type="submit" name="rType" value="Join" style="color: red">&nbsp;&nbsp;&nbsp;&nbsp;
+			<input type="reset" value="Reset" style="color: red">
+			</td>
+			</tr></font>
+			</form>
+
+		</table>
+	</div>
+</body>

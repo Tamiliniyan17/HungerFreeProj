@@ -1,0 +1,44 @@
+SQL> desc hunger_volunteers;
+ Name                                                  Null?    		Type
+ -------------------------------------- 				-------- 		------------------------------------
+ VID                                                   NOT NULL	 NUMBER(10)
+ NAME                                                           			VARCHAR2(50)
+ LOCATION                                                       		VARCHAR2(50)
+ MOBILE                                                         			NUMBER(10)
+ EMAIL                                                          			VARCHAR2(50)
+ PASSWORD                                                       	VARCHAR2(20)
+ JOINEDDATE                                                     		DATE
+ 
+ 
+ SQL> desc hunger_places;
+ Name                                                  Null?    			Type
+ ---------------------------------- 					-------- 			-------------------
+ HID                                                   NOT NULL 		NUMBER(10)
+ TYPE                                                           				VARCHAR2(10)
+ LOCATION                                                       			VARCHAR2(50)
+ PEOPLECOUNT                                                    		NUMBER(10)
+ MOBILE                                                        				NUMBER(10)
+ EMAIL                                                          				VARCHAR2(50)
+ REGDATE                                                        			DATE
+ 
+ 
+ SQL> desc hunger_donors;
+ Name                                                  Null?   		 Type
+ --------------------------- 							-------- 		---------------------
+ DID                                                   NOT NULL	   NUMBER(10)
+ NAME                                                           				VARCHAR2(50)
+ ADDRESS                                                        			VARCHAR2(30)
+ FOODITEMS                                                      		VARCHAR2(50)
+ FOODQTY                                                        			NUMBER(10)
+ PREPAREDTIME                                                  	 	NUMBER(2)
+ MOBILE                                                         				NUMBER(10)
+ PREPAREDDATE                                                   		DATE
+ 
+ 
+ SQL> desc hunger_admin;
+ Name                                                    Type
+ ---------------------------------- 				----------------------
+ UNAME                                             VARCHAR2(30)
+ PWD                                                  VARCHAR2(30)
+ 
+ 
